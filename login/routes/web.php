@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MailController;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +23,7 @@ Route::get('/', function () {
 
 // Route::get('user/registration',[UserController::class,'registration'])->name('user.registration');
 Route::get('/users/login', [UserController::class, 'login'])->name('users.login');
-Route::post('/users/registrationpost', [UserController::class, 'registrationpost'])->name('users.registration.post');
+// Route::post('/users/registrationpost', [UserController::class, 'registrationpost'])->name('users.registration.post');
 // Users
 Route::get('/users/registration', [UserController::class, 'registration'])->name('users.registration');
 Route::post('/users/registrationpost', [UserController::class, 'registrationpost'])->name('users.registration.post');
@@ -33,3 +35,10 @@ Route::post('/mails/mailpost', [MailController::class, 'mailpost'])->name('mails
 // 메일인증 TEST
 Route::get('/users/verify/{code}/{email}', [UserController::class, 'verify'])->name('users.verify');
 Route::get('/resend-email', [UserController::class, 'resend_email'])->name('resend.email');
+
+
+
+
+Route::get('/contact',function(){
+    Mail::to('mimimic9@naver.com')->send(new TestMail());
+});

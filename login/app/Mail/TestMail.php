@@ -8,32 +8,30 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\User;
 
-class AssignmentCreated extends Mailable
+class TestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->user = $user;
+        //
     }
 
-    // /**
-    //  * Get the message envelope.
-    //  *
-    //  * @return \Illuminate\Mail\Mailables\Envelope
-    //  */
+    /**
+     * Get the message envelope.
+     *
+     * @return \Illuminate\Mail\Mailables\Envelope
+     */
     // public function envelope()
     // {
     //     return new Envelope(
-    //         subject: 'Assignment Created',
+    //         subject: 'Test Mail',
     //     );
     // }
 
@@ -49,6 +47,10 @@ class AssignmentCreated extends Mailable
     //     );
     // }
 
+
+    public function build(){
+        return $this->view('emails.test');
+    }
     /**
      * Get the attachments for the message.
      *
@@ -59,9 +61,5 @@ class AssignmentCreated extends Mailable
         return [];
     }
 
-    public function build()
-    {
-        return $this->from('miiiihyeon98@gmail.com', 'Test')
-                    ->view('sendmail');
-    }
+
 }

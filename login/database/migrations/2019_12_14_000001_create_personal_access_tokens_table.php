@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('password');
-            $table->string('email')->unique();
             $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->integer('phone_number');
+            $table->integer('birth');
+            $table->string('question');
+            $table->string('question_answer');
             // $table->char('del_flg',1)->default('0');
-            $table->string('verification_code')->nullable();
-            $table->timestamp('validity_period')->nullable(); // + 메일인증코드 만료시간
             $table->timestamp('email_verified_at')->nullable(); // email 인증 시각
             $table->rememberToken(); // 로그인 유지하기 기능
             $table->timestamps();

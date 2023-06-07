@@ -7,15 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    {{-- <form action="{{route('mails.mail.post')}}" method="POST">
+    <form action="{{route('mails.mail.post')}}" method="POST">
         @csrf
         <label for="email">email : </label>
         <input type="text" id="email" name="email">
         <button type="submit">submit</button>
-    </form> --}}
+    </form>
 
 
-    <form id="{{route('mails.mail.post')}}" action="/submit" method="POST">
+    {{-- <form id="{{route('mails.mail.post')}}" action="/submit" method="POST">
     @csrf
         <input type="text" name="input_value">
         <button type="button" onclick="submitForm()">전송</button>
@@ -24,7 +24,7 @@
     function submitForm() {
         var form = document.getElementById('myForm');
         form.submit();
-    }
+    } --}}
 </script>
 </body>
 </html>

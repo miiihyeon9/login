@@ -9,6 +9,12 @@
 <body>
     <form id="myForm" action="{{route('mails.mail.post')}}" method="POST">
     @csrf
+        <input type="text" name="email">
+        <button type="button" onclick="submitForm()">전송</button>
+    </form>
+
+    {{-- <form id="myForm" action="{{route('mails.mail.post')}}" method="POST">
+    @csrf
         <input type="text" name="input_value">
         <button type="button" onclick="submitForm()">전송</button>
     </form>
@@ -17,6 +23,9 @@
         var form = document.getElementById('myForm');
         form.submit();
     }
-</script>
+    </script> --}}
+    {{-- <form action="{{route('users.registraion.post')}}">
+
+    </form> --}}
 </body>
 </html>
